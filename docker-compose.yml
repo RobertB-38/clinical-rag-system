@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # keys come from a .env file (RAG_ANTHROPIC_API_KEY=..., OPENAI_API_KEY=...) or your shell
+      - RAG_ANTHROPIC_API_KEY=${RAG_ANTHROPIC_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - RAG_LLM_PROVIDER=${RAG_LLM_PROVIDER:-claude}
+    volumes:
+      # persist the vector index across restarts
+      - ./data:/app/data

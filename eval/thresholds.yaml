@@ -1,0 +1,13 @@
+# CI gate for the eval harness. A run below any floor fails the build
+# (python -m eval.run_eval --check). Metrics not measured in a given run
+# (e.g. judge metrics under the fake provider) are skipped, not failed.
+#
+# Floors are set just under current real-stack numbers so a genuine regression
+# trips them without flapping on judge noise. Tune as the corpus/eval grows.
+
+hit@k: 0.85
+keyword_correctness: 0.55
+citation_validity: 0.85
+# judge_* deliberately ungated by default (noisy); uncomment to enforce.
+# judge_correctness: 0.70
+# judge_groundedness: 0.70

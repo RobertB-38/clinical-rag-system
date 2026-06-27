@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install (test subset — fakes need no heavy ML deps)
+        run: |
+          python -m pip install --upgrade pip
+          pip install fastapi==0.111.0 uvicorn==0.29.0 pydantic==2.7.1 pydantic-settings==2.2.1 \
+                      pytest==8.2.0 httpx==0.27.0 numpy==1.26.4 PyYAML==6.0.1 \
+                      prometheus-client==0.20.0 opentelemetry-sdk==1.27.0 opentelemetry-api==1.27.0
+      - name: Unit tests (offline, no keys)
+        run: python -m pytest -q
+
+  docker-build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t clinical-rag:ci .
+
+  eval-gate:
+    # Real eval regression gate. Runs only when API keys are configured as repo
+    # secrets; otherwise skipped (we never fabricate scores in CI).
+    runs-on: ubuntu-latest
+    needs: test
+    if: ${{ secrets.RAG_ANTHROPIC_API_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {lfs: true}            # prebuilt Chroma index ships via Git LFS
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -r requirements.txt
+      - name: Eval regression gate
+        env:
+          RAG_ANTHROPIC_API_KEY: ${{ secrets.RAG_ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          RAG_LLM_PROVIDER: claude
+        run: python -m eval.run_eval --check

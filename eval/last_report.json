@@ -1,0 +1,9 @@
+{
+  "n_questions": 13,
+  "provider": "claude",
+  "hit@k": 1.0,
+  "keyword_correctness": 0.885,
+  "citation_validity": 1.0,
+  "judge_correctness": 0.821,
+  "judge_groundedness": 0.952
+}

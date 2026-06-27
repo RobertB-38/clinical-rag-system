@@ -1,0 +1,39 @@
+flowchart TB
+    subgraph Client
+        UI["React UI<br/>streaming chat + sources/latency/cost"]
+    end
+
+    subgraph API["FastAPI service"]
+        IG["Input guardrails<br/>PII redact · injection block · rate limit"]
+        RET["Retrieve<br/>BGE embed → Chroma top-k"]
+        GATE["Relevance gate<br/>refuse if score < threshold"]
+        ROUTER["Model router<br/>cheap Haiku ⇄ frontier Sonnet"]
+        GEN["Grounded generation<br/>cited answer"]
+        OG["Output guardrail<br/>groundedness check / refuse"]
+    end
+
+    subgraph Obs["Observability"]
+        OTEL["OpenTelemetry spans"]
+        PROM["Prometheus /metrics"]
+        GRAF["Grafana dashboard"]
+    end
+
+    subgraph Offline
+        EVAL["Eval harness<br/>correctness · groundedness · citations"]
+        CI["GitHub Actions<br/>fail on regression"]
+    end
+
+    UI -->|POST /v1/query/stream| IG --> RET --> GATE --> ROUTER --> GEN --> OG -->|SSE tokens + meta| UI
+    IG -. span+metric .-> OTEL
+    RET -. span+metric .-> OTEL
+    GEN -. tokens+cost .-> PROM
+    OTEL --> PROM --> GRAF
+    EVAL --> CI
+    CI -. gates .-> API
+
+    subgraph Deploy["Kubernetes (local k3s/minikube)"]
+        DEP["Deployment + HPA"]
+        K6["k6 load test → triggers autoscaling"]
+    end
+    API --- DEP
+    K6 --> DEP

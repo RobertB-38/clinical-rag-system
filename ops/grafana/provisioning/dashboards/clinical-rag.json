@@ -1,0 +1,87 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "schemaVersion": 39,
+  "version": 1,
+  "title": "Clinical RAG — Production",
+  "tags": ["clinical-rag", "llmops"],
+  "time": {"from": "now-15m", "to": "now"},
+  "refresh": "5s",
+  "templating": {"list": []},
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Request latency (p50 / p95 / p99)",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+      "fieldConfig": {"defaults": {"unit": "s"}},
+      "targets": [
+        {"expr": "histogram_quantile(0.50, sum(rate(rag_request_latency_seconds_bucket[5m])) by (le))", "legendFormat": "p50"},
+        {"expr": "histogram_quantile(0.95, sum(rate(rag_request_latency_seconds_bucket[5m])) by (le))", "legendFormat": "p95"},
+        {"expr": "histogram_quantile(0.99, sum(rate(rag_request_latency_seconds_bucket[5m])) by (le))", "legendFormat": "p99"}
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Request rate by endpoint",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+      "fieldConfig": {"defaults": {"unit": "reqps"}},
+      "targets": [
+        {"expr": "sum(rate(rag_requests_total[5m])) by (endpoint)", "legendFormat": "{{endpoint}}"}
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "Refusal rate",
+      "gridPos": {"h": 8, "w": 6, "x": 0, "y": 8},
+      "fieldConfig": {"defaults": {"unit": "percentunit", "min": 0, "max": 1}},
+      "targets": [
+        {"expr": "sum(rate(rag_requests_total{refused=\"true\"}[15m])) / clamp_min(sum(rate(rag_requests_total[15m])), 1)", "legendFormat": "refused"}
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Error rate",
+      "gridPos": {"h": 8, "w": 6, "x": 6, "y": 8},
+      "fieldConfig": {"defaults": {"unit": "reqps"}},
+      "targets": [
+        {"expr": "sum(rate(rag_errors_total[5m])) by (endpoint)", "legendFormat": "{{endpoint}}"}
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Retrieval quality — top similarity (p50 / p10)",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+      "fieldConfig": {"defaults": {"unit": "none", "min": 0, "max": 1}},
+      "targets": [
+        {"expr": "histogram_quantile(0.50, sum(rate(rag_top_retrieval_score_bucket[5m])) by (le))", "legendFormat": "p50 top score"},
+        {"expr": "histogram_quantile(0.10, sum(rate(rag_top_retrieval_score_bucket[5m])) by (le))", "legendFormat": "p10 top score"}
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Tokens / sec by model",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 16},
+      "fieldConfig": {"defaults": {"unit": "none"}},
+      "targets": [
+        {"expr": "sum(rate(rag_tokens_total[5m])) by (model, kind)", "legendFormat": "{{model}} {{kind}}"}
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "Cumulative LLM spend (USD)",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 16},
+      "fieldConfig": {"defaults": {"unit": "currencyUSD"}},
+      "targets": [
+        {"expr": "sum(rag_cost_usd_total) by (model)", "legendFormat": "{{model}}"}
+      ]
+    },
+    {
+      "type": "piechart",
+      "title": "Router model selection",
+      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 16},
+      "targets": [
+        {"expr": "sum(rag_router_selections_total) by (tier)", "legendFormat": "{{tier}}"}
+      ]
+    }
+  ]
+}

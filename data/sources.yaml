@@ -1,0 +1,209 @@
+# Corpus manifest — the NCEC National Clinical Guidelines suite (Ireland).
+# Published by Ireland's Department of Health / National Clinical Effectiveness
+# Committee (NCEC) and the HSE. Source collection:
+#   https://www.gov.ie/en/department-of-health/collections/national-clinical-guidelines/
+#
+# LICENCE: gov.ie publishes a specific IP notice for these guidelines:
+#   https://assets.gov.ie/static/documents/national-clinical-guidelines-intellectual-property.pdf
+# Index the PDFs locally; do NOT commit them unless that notice allows it.
+# data/raw/*.pdf is gitignored. This manifest is the committed, shareable record.
+#
+# Ordered by download priority (BATCH 1 first = richest clinical Q&A / best demo
+# material). You do not need all of them to have a working, impressive demo —
+# Batch 1 alone is enough. Add later batches for volume.
+#
+# To build: download each `url`'s PDF into data/raw/ as the exact `file` name,
+# set `retrieved`, then:  python -m app.ingest.run  &&  python -m eval.run_eval
+
+sources:
+
+  # ============================================================
+  # BATCH 1 — Core conditions (download these first; best demo)
+  # ============================================================
+  - id: ncg-sepsis
+    file: ncg-sepsis-adults.pdf
+    title: "NCEC NCG No. 26 — Sepsis Management for Adults (including maternity)"
+    url: "https://www.gov.ie/en/department-of-health/publications/sepsis-management-for-adults-including-maternity/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-copd
+    file: ncg-copd.pdf
+    title: "NCEC NCG No. 27 — Management of Chronic Obstructive Pulmonary Disease (COPD)"
+    url: "https://www.gov.ie/en/department-of-health/publications/management-of-chronic-obstructive-pulmonary-disease-copd/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-asthma-acute
+    file: ncg-acute-asthma-adults.pdf
+    title: "NCEC NCG No. 14 — Management of an Acute Asthma Attack in Adults (16 years and older)"
+    url: "https://www.gov.ie/en/department-of-health/collections/management-of-an-acute-asthma-attack-in-adults-aged-16-years-and-older/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-type1-diabetes
+    file: ncg-type1-diabetes-adults.pdf
+    title: "NCEC NCG No. 17 — Type 1 Diabetes Mellitus in Adults (Version 2)"
+    url: "https://www.gov.ie/en/department-of-health/collections/type-1-diabetes-mellitus-in-adults-version-2/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+
+  # ============================================================
+  # BATCH 2 — Infection prevention & control + prevention
+  # ============================================================
+  - id: ncg-ipc-vol1
+    file: ncg-ipc-vol1.pdf
+    title: "NCEC NCG No. 30 — Infection Prevention and Control (IPC), Full Report Vol 1"
+    url: "https://www.gov.ie/en/department-of-health/publications/ncec-national-clinical-guideline-ncg-no-30-infection-prevention-and-control-ipc-updates/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-ipc-vol2
+    file: ncg-ipc-vol2.pdf
+    title: "NCEC NCG No. 30 — Infection Prevention and Control (IPC), Full Report Vol 2"
+    url: "https://www.gov.ie/en/department-of-health/publications/ncec-national-clinical-guideline-ncg-no-30-infection-prevention-and-control-ipc-updates/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-mrsa
+    file: ncg-mrsa.pdf
+    title: "NCEC NCG — Prevention and Control of Meticillin-Resistant Staphylococcus Aureus (MRSA)"
+    url: "https://www.gov.ie/en/department-of-health/collections/prevention-and-control-of-mrsa/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-cdiff
+    file: ncg-clostridium-difficile.pdf
+    title: "NCEC NCG — Surveillance, Diagnosis and Management of Clostridium Difficile Infection in Ireland"
+    url: "https://www.gov.ie/en/department-of-health/collections/clostridium-difficile/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-hepc-screening
+    file: ncg-hepatitis-c-screening.pdf
+    title: "NCEC NCG — Hepatitis C Screening"
+    url: "https://www.gov.ie/en/department-of-health/collections/hepatitis-c-screening/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-stop-smoking
+    file: ncg-stop-smoking.pdf
+    title: "NCEC NCG — Stop Smoking"
+    url: "https://www.gov.ie/en/department-of-health/publications/stop-smoking/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+
+  # ============================================================
+  # BATCH 3 — Deterioration / early warning systems
+  # ============================================================
+  - id: ncg-inews
+    file: ncg-inews-v2.pdf
+    title: "NCEC NCG No. 1 — Irish National Early Warning System (INEWS) Version 2"
+    url: "https://www.gov.ie/en/department-of-health/collections/irish-national-early-warning-system-inews-version-2/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-imews
+    file: ncg-imews-v2.pdf
+    title: "NCEC NCG — Irish Maternity Early Warning System (IMEWS) Version 2"
+    url: "https://www.gov.ie/en/department-of-health/collections/irish-maternity-early-warning-system-imews-version-2/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-pews
+    file: ncg-pews.pdf
+    title: "NCEC NCG — Irish Paediatric Early Warning System (PEWS)"
+    url: "https://www.gov.ie/en/department-of-health/collections/paediatric-early-warning-system-pews/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-emews
+    file: ncg-emews.pdf
+    title: "NCEC NCG — Emergency Medicine Early Warning System (EMEWS)"
+    url: "https://www.gov.ie/en/department-of-health/collections/emergency-medicine-early-warning-system-emews/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+
+  # ============================================================
+  # BATCH 4 — Maternity, perioperative & clinical process
+  # ============================================================
+  - id: ncg-handover-maternity
+    file: ncg-clinical-handover-maternity.pdf
+    title: "NCEC NCG — Communication (Clinical Handover) in Maternity Services"
+    url: "https://www.gov.ie/en/department-of-health/collections/clinical-handover-in-maternity-services/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-handover-acute
+    file: ncg-clinical-handover-acute.pdf
+    title: "NCEC NCG — Communication (Clinical Handover) in Acute and Children's Hospital Services"
+    url: "https://www.gov.ie/en/department-of-health/collections/clinical-handover-in-acute-and-childrens-hospital-services/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-pregnancy-risk
+    file: ncg-clinical-risk-pregnancy.pdf
+    title: "NCEC NCG — Stratification of Clinical Risk in Pregnancy"
+    url: "https://www.gov.ie/en/department-of-health/collections/stratification-of-clinical-risk-in-pregnancy/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-intraop-haemorrhage
+    file: ncg-intraoperative-haemorrhage.pdf
+    title: "NCEC NCG — Unexpected Intraoperative Life-Threatening Haemorrhage"
+    url: "https://www.gov.ie/en/department-of-health/publications/unexpected-intraoperative-life-threatening-haemorrhage/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+
+  # ============================================================
+  # BATCH 5 — Symptom & supportive care
+  # ============================================================
+  - id: ncg-cancer-pain
+    file: ncg-cancer-pain-adults.pdf
+    title: "NCEC NCG — Pharmacological Management of Cancer Pain in Adults"
+    url: "https://www.gov.ie/en/department-of-health/collections/pharmacological-management-of-cancer-pain-in-adults/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-constipation-palliative
+    file: ncg-constipation-palliative.pdf
+    title: "NCEC NCG — Management of Constipation in Adult Patients Receiving Palliative Care"
+    url: "https://www.gov.ie/en/department-of-health/collections/management-of-constipation-in-adult-patients-receiving-palliative-care/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-nutrition-support
+    file: ncg-nutrition-support.pdf
+    title: "NCEC NCG — Nutrition Screening and Use of Oral Nutrition Support for Adults in the Acute Care Setting"
+    url: "https://www.gov.ie/en/department-of-health/collections/nutrition-screening-and-use-of-oral-nutrition-support-for-adults-in-the-acute-care-setting/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+  - id: ncg-psychotropic-dementia
+    file: ncg-psychotropic-dementia.pdf
+    title: "NCEC NCG — Appropriate Prescribing of Psychotropic Medication for Non-Cognitive Symptoms in People with Dementia"
+    url: "https://www.gov.ie/en/department-of-health/collections/appropriate-prescribing-of-psychotropic-medication-for-non-cognitive-symptoms-in-people-with-dementia/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC — see IP notice; not redistributed."
+
+  # ============================================================
+  # BATCH 6 — Oncology (staging/treatment; lowest priority, drier Q&A)
+  # Some are maintained by the HSE National Cancer Control Programme (NCCP).
+  # ============================================================
+  - id: ncg-lung-cancer
+    file: ncg-lung-cancer.pdf
+    title: "NCEC NCG — Diagnosis, Staging and Treatment of Patients with Lung Cancer"
+    url: "https://www.gov.ie/en/department-of-health/collections/diagnosis-staging-and-treatment-of-patients-with-lung-cancer/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC / HSE NCCP — see IP notice; not redistributed."
+  - id: ncg-colon-cancer
+    file: ncg-colon-cancer.pdf
+    title: "NCEC NCG — Diagnosis, Staging and Treatment of Patients with Colon Cancer"
+    url: "https://www.gov.ie/en/department-of-health/publications/diagnosis-staging-and-treatment-of-patients-with-colon-cancer/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC / HSE NCCP — see IP notice; not redistributed."
+  - id: ncg-rectal-cancer
+    file: ncg-rectal-cancer.pdf
+    title: "NCEC NCG No. 25 — Diagnosis, Staging and Treatment of Patients with Rectal Cancer"
+    url: "https://www.gov.ie/en/department-of-health/publications/diagnosis-staging-and-treatment-of-patients-with-rectal-cancer/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC / HSE NCCP — see IP notice; not redistributed."
+  - id: ncg-oesophageal-cancer
+    file: ncg-oesophageal-cancer.pdf
+    title: "NCEC NCG — Diagnosis, Staging and Treatment of Patients with Oesophageal or Oesophagogastric Junction Cancer"
+    url: "https://www.gov.ie/en/department-of-health/collections/diagnosis-staging-and-treatment-of-patients-with-oesophageal-or-oesophagogastric-junction-cancer/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC / HSE NCCP — see IP notice; not redistributed."
+  - id: ncg-ovarian-cancer
+    file: ncg-ovarian-cancer.pdf
+    title: "NCEC NCG — Diagnosis and Staging of Patients with Ovarian Cancer"
+    url: "https://www.gov.ie/en/department-of-health/collections/diagnosis-and-staging-of-patients-with-ovarian-cancer/"
+    retrieved: "TBD"
+    licence: "© Dept of Health Ireland / NCEC / HSE NCCP — see IP notice; not redistributed."
+
+  # NOTE: Breast (NCG 7), Prostate (NCG 8) and Gestational Trophoblastic Disease
+  # (NCG 13) were retired from the NCEC suite and moved to the HSE National Cancer
+  # Control Programme (NCCP). Add from the NCCP site if you want full oncology coverage.

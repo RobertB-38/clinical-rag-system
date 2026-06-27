@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: clinical-rag-config
+data:
+  RAG_EMBEDDING_PROVIDER: "bge"
+  RAG_VECTOR_STORE: "chroma"
+  RAG_LLM_PROVIDER: "router"          # cheap (Claude Haiku) + frontier (Claude Sonnet)
+  RAG_TOP_K: "8"
+  RAG_SCORE_THRESHOLD: "0.25"
+  RAG_ENFORCE_GROUNDEDNESS: "true"
+  RAG_RATE_LIMIT: "30/minute"
+  PORT: "8000"
+  # Point at an OTLP collector to ship traces (else spans are no-ops in cluster):
+  # OTEL_EXPORTER_OTLP_ENDPOINT: "http://otel-collector:4318"

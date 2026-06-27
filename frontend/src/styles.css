@@ -1,0 +1,64 @@
+:root {
+  --bg: #0f1115;
+  --card: #171a21;
+  --line: #262b36;
+  --text: #e6e9ef;
+  --muted: #8b93a4;
+  --accent: #4f8cff;
+  --ok: #2ecc71;
+  --warn: #e0a050;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.app { max-width: 1000px; margin: 0 auto; padding: 32px 20px 60px; }
+header h1 { margin: 0; font-size: 28px; }
+.sub { color: var(--muted); margin: 4px 0 24px; }
+
+.composer { display: flex; gap: 10px; }
+textarea {
+  flex: 1; resize: vertical; padding: 12px; border-radius: 10px;
+  background: var(--card); color: var(--text); border: 1px solid var(--line);
+}
+button {
+  background: var(--accent); color: #fff; border: 0; border-radius: 10px;
+  padding: 0 22px; font-weight: 600; cursor: pointer;
+}
+button:disabled { opacity: 0.5; cursor: default; }
+
+.samples { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 24px; }
+.chip {
+  background: transparent; border: 1px solid var(--line); color: var(--muted);
+  border-radius: 999px; padding: 6px 12px; font-size: 13px;
+}
+
+.grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 16px; }
+@media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+
+.answer-card, .panel {
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px;
+}
+.card-head { display: flex; align-items: center; gap: 10px; font-weight: 600; margin-bottom: 10px; }
+.answer { min-height: 160px; max-height: 360px; overflow-y: auto; white-space: pre-wrap; }
+.badge { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+.badge.ok { background: rgba(46,204,113,.15); color: var(--ok); }
+.badge.warn { background: rgba(224,160,80,.15); color: var(--warn); }
+.error { color: #ff6b6b; margin-top: 10px; }
+.disclaimer { color: var(--muted); font-size: 12px; margin-top: 14px; }
+
+.metrics { display: flex; gap: 10px; margin-bottom: 16px; }
+.metric { flex: 1; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+.metric-label { display: block; color: var(--muted); font-size: 11px; text-transform: uppercase; }
+.metric-value { font-weight: 700; }
+.panel h3 { margin: 0 0 8px; font-size: 14px; }
+.source { border-top: 1px solid var(--line); padding: 10px 0; }
+.source-head { display: flex; align-items: center; gap: 8px; }
+.source-head .num { color: var(--accent); font-weight: 700; }
+.source-head a { color: var(--text); text-decoration: none; flex: 1; font-size: 13px; }
+.source-head .score { color: var(--muted); font-size: 12px; }
+.snippet { color: var(--muted); font-size: 12px; margin: 6px 0 0; }
+.muted { color: var(--muted); }

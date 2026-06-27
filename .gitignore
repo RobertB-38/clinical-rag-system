@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+**/.DS_Store
+
+# secrets
+.env
+
+# generated vector index (rebuild with: python -m app.ingest.run)
+data/chroma/
+
+# raw guideline PDFs are added locally; don't commit unless licence permits
+data/raw/*.pdf
+
+# local venvs
+.venv/
+venv/
+
+# allow an example env template
+!.env.example
+
+# node / react (added in later phases)
+node_modules/
+dist/
+build/

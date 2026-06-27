@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clinical-rag
+  labels: {app: clinical-rag}
+spec:
+  replicas: 1                      # HPA scales from here
+  selector:
+    matchLabels: {app: clinical-rag}
+  template:
+    metadata:
+      labels: {app: clinical-rag}
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8000"
+        prometheus.io/path: "/metrics"
+    spec:
+      containers:
+        - name: api
+          image: clinical-rag:latest      # built locally; load into k3s/minikube (see DEPLOY)
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef: {name: clinical-rag-config}
+            - secretRef: {name: clinical-rag-secrets}
+          resources:
+            requests: {cpu: "250m", memory: "512Mi"}
+            limits: {cpu: "1", memory: "1Gi"}
+          readinessProbe:
+            httpGet: {path: /health, port: 8000}
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: {path: /health, port: 8000}
+            initialDelaySeconds: 20
+            periodSeconds: 20

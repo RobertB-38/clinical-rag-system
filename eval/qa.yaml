@@ -1,0 +1,78 @@
+# Evaluation set for the NCEC corpus.
+# `expected_source_id` must match an id in data/sources.yaml. Aim for ~2-3
+# questions per indexed guideline so hit@k reflects the whole corpus, not a
+# corner of it. Expand as you add documents.
+questions:
+
+  # --- Sepsis (ncg-sepsis) ---
+  - question: "What is the recommended timeframe for giving antibiotics in adult sepsis?"
+    expected_source_id: ncg-sepsis
+    expected_keywords: ["antibiotic", "hour"]
+  - question: "Which early warning score is used to escalate a deteriorating septic adult?"
+    expected_source_id: ncg-sepsis
+    expected_keywords: ["score", "escalat"]
+  - question: "How is sepsis defined in adults?"
+    expected_source_id: ncg-sepsis
+    expected_keywords: ["organ", "infection"]
+
+  # --- COPD (ncg-copd) ---
+  - question: "How is a COPD diagnosis confirmed?"
+    expected_source_id: ncg-copd
+    expected_keywords: ["spirometry", "airflow"]
+  - question: "What is the management of an acute exacerbation of COPD?"
+    expected_source_id: ncg-copd
+    expected_keywords: ["exacerbation", "bronchodilator"]
+
+  # --- Acute asthma (ncg-asthma-acute) ---
+  - question: "How do you assess the severity of an acute asthma attack in adults?"
+    expected_source_id: ncg-asthma-acute
+    expected_keywords: ["severe", "peak flow"]
+  - question: "What treatment is given for an acute asthma attack?"
+    expected_source_id: ncg-asthma-acute
+    expected_keywords: ["oxygen", "salbutamol"]
+
+  # --- Type 1 diabetes (ncg-type1-diabetes) ---
+  - question: "How is diabetic ketoacidosis managed in adults with type 1 diabetes?"
+    expected_source_id: ncg-type1-diabetes
+    expected_keywords: ["ketoacidosis", "insulin"]
+  - question: "What HbA1c target is recommended in adults with type 1 diabetes?"
+    expected_source_id: ncg-type1-diabetes
+    expected_keywords: ["hba1c", "target"]
+
+  # --- Infection prevention & control (ncg-ipc) ---
+  - question: "What are the core standard precautions for infection prevention and control?"
+    expected_source_id: ncg-ipc-vol1
+    expected_keywords: ["hand hygiene", "precaution"]
+
+  # --- MRSA (ncg-mrsa) ---
+  - question: "How should patients colonised with MRSA be managed?"
+    expected_source_id: ncg-mrsa
+    expected_keywords: ["mrsa", "screening"]
+
+  # --- C. difficile (ncg-cdiff) ---
+  - question: "How is Clostridium difficile infection diagnosed?"
+    expected_source_id: ncg-cdiff
+    expected_keywords: ["toxin", "stool"]
+
+  # --- Stop smoking (ncg-stop-smoking) ---
+  - question: "What pharmacotherapy options are recommended to help patients stop smoking?"
+    expected_source_id: ncg-stop-smoking
+    expected_keywords: ["nicotine", "varenicline"]
+
+# ---------------------------------------------------------------------------
+# PENDING — questions for guidelines not yet downloaded (Batches 3-5).
+# Re-enable each block once its PDF is in data/raw/ and indexed, so hit@k stays
+# honest (we don't score questions whose source document isn't in the index).
+# ---------------------------------------------------------------------------
+#  - question: "What does an elevated INEWS score indicate and how should staff respond?"
+#    expected_source_id: ncg-inews
+#    expected_keywords: ["escalat", "score"]
+#  - question: "How is cancer pain managed pharmacologically in adults?"
+#    expected_source_id: ncg-cancer-pain
+#    expected_keywords: ["opioid", "pain"]
+#  - question: "How should adults be screened for malnutrition in acute care?"
+#    expected_source_id: ncg-nutrition-support
+#    expected_keywords: ["screening", "malnutrition"]
+#  - question: "When is psychotropic medication appropriate for non-cognitive symptoms of dementia?"
+#    expected_source_id: ncg-psychotropic-dementia
+#    expected_keywords: ["antipsychotic", "dementia"]

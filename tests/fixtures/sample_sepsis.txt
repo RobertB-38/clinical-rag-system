@@ -1,0 +1,56 @@
+SAMPLE CLINICAL TEXT — ILLUSTRATIVE ONLY, NOT A REAL GUIDELINE.
+This synthetic document exists so the ingestion and retrieval pipeline can be
+run and tested before real, licensed guideline PDFs are added to data/raw/.
+
+Adult Sepsis: Recognition and Early Management (Sample)
+
+Recognition.
+Sepsis is life-threatening organ dysfunction caused by a dysregulated host
+response to infection. Suspect sepsis in any patient with a known or likely
+infection who shows signs of clinical deterioration. High-risk criteria include
+a respiratory rate of 25 breaths per minute or more, oxygen saturation below 92
+percent, heart rate above 130 beats per minute, systolic blood pressure of 90
+mmHg or lower, new altered mental state, and no urine output for the previous 18
+hours. The presence of any single high-risk criterion warrants immediate senior
+clinical review.
+
+Initial assessment.
+Measure a full set of vital signs including temperature, heart rate, respiratory
+rate, blood pressure, oxygen saturation and level of consciousness. Measure
+serum lactate and obtain blood cultures before starting antibiotics where this
+does not delay treatment. Venous or arterial lactate above 2 mmol/L indicates
+tissue hypoperfusion, and a level above 4 mmol/L indicates high risk and the
+need for urgent resuscitation.
+
+The Sepsis Six.
+For patients with suspected sepsis and high-risk features, deliver the following
+six interventions within one hour of recognition: administer high-flow oxygen to
+maintain target saturations, take blood cultures, give broad-spectrum
+intravenous antibiotics, give intravenous fluids, measure serum lactate, and
+monitor urine output. This bundle is intended to be completed within the first
+hour, sometimes called the golden hour.
+
+Antibiotics.
+Give broad-spectrum intravenous antibiotics in line with local microbiology
+policy within one hour of identifying high-risk sepsis. Do not wait for blood
+culture results before starting treatment. Review the choice of antibiotic once
+culture sensitivities are available and de-escalate where appropriate to reduce
+the risk of antimicrobial resistance.
+
+Fluid resuscitation.
+For adults with suspected sepsis and a lactate above 2 mmol/L or hypotension,
+give an intravenous crystalloid fluid bolus of 500 mL over less than 15 minutes
+and reassess. Repeated boluses may be required, with careful monitoring for
+signs of fluid overload, particularly in older adults and those with heart
+failure or chronic kidney disease.
+
+Escalation.
+Escalate to critical care for patients who remain hypotensive or have a
+persistently raised lactate despite initial fluid resuscitation, as these
+patients may require vasopressor support. Senior clinical decision making should
+not be delayed.
+
+Children.
+The thresholds and physiological values described above apply to adults. Paediatric
+sepsis uses age-specific vital sign thresholds and is outside the scope of this
+sample document.
