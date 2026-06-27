@@ -14,6 +14,10 @@ Built as a focused engineering project to demonstrate three things end to end: *
 
 The original project proved retrieve-then-generate RAG. **v0.2 wraps it in the production layer that separates a demo from a hire:** evaluation, observability, cost control, guardrails, Kubernetes, and a React UI. The core stays a clean retrieve-then-generate service; everything below is built *around* it.
 
+![Streaming React UI with retrieved sources, latency, cost, and model per answer](assets/demo-4.png)
+
+*The React UI: a grounded, cited answer streaming in, with the retrieved NCEC sources (and similarity scores), per-answer latency, cost, and the router-selected model.*
+
 ### Request lifecycle
 ```
 question
